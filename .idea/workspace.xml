@@ -7,13 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72b46377-4fb8-438c-8279-ce9b3fafe9fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/DirectoryChoose.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jacob_1_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jacob-1.18-M2-x64.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jacob-1.18-M2-x86.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jacob-1.18-x64.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jacob-1.18-x86.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jacob-1.18.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/zeonpadpdf.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/MsgToPdf_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Attachment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Attachment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MsgToPdf.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Message.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,11 +55,21 @@
   <component name="ProjectId" id="1SpGzzKhoqssGZuz6xvAKM3XxvZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jacob-1.18.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="project.structure.side.proportion" value="0.4448276" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\IdeaProjects\SRWF-msg-to-pdf\lib" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -68,8 +85,10 @@
   </component>
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk1.8.0_221\jre" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="main.App" />
-      <module name="MsgToPdf" />
+      <module name="SRWF-msg-to-pdf" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -137,9 +156,7 @@
       <option name="WORKING_DIRECTORY" value="C:\Users\filip.skiba\IdeaProjects\MsgToPdf" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="MsgToPdf:jar" />
-        </option>
+        <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
     <list>

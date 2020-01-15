@@ -10,17 +10,7 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.2</version>
-                <configuration>
-                    <archive>
-                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-                    </archive>
-                </configuration>
 
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -33,6 +23,21 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>com.jacob.pdf</groupId>
+            <artifactId>pdf</artifactId>
+            <version>1.18</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jacob-1.18.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.zeonpad.pdf</groupId>
+            <artifactId>pdf</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/zeonpadpdf.jar</systemPath>
+        </dependency>
+
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>itextpdf</artifactId>

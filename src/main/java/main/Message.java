@@ -3,6 +3,7 @@ package main;
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.layout.font.FontProvider;
+
 import com.zeonpad.pdfcovertor.OutlookToPdf;
 import org.apache.poi.hsmf.MAPIMessage;
 import org.apache.poi.hsmf.datatypes.AttachmentChunks;
@@ -128,6 +129,7 @@ public class Message {
                 System.err.println("Błąd przy tworzeniu folderu wyjsciowego pdf");
             }
         }
+
         OutlookToPdf outlookToPdf = new OutlookToPdf();
         outlookToPdf.convert(msgFileName, pdfFileName);
 
