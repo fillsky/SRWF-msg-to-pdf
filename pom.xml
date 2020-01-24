@@ -4,38 +4,116 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>SRWF</groupId>
-    <artifactId>MsgToPdf</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>srwf</groupId>
+    <artifactId>mtg-converter</artifactId>
+    <version>0.1</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.12</java.version>
+    </properties>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>
+                                        main.App
+                                    </mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
+
+        <!--
+        This plugin provides the capability to build jars.
+        https://maven.apache.org/plugins/maven-jar-plugin/
+        It provides two maven goals "jar:jar" and "jar:test-jar"
+        -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <configuration>
+                <outputDirectory>out/</outputDirectory>
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <mainClass>main.App</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+        </plugin>
+        <!--
+        The plugin helps to execute system and Java programs.
+        https://www.mojohaus.org/exec-maven-plugin/
+        It provides two maven goals "exec:exec" and "exec:java"
+        Allows us to run this test application from our IDE by first using "compiler:compile" and then "exec:java"
+        -->
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.6.0</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>java</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <mainClass>main.App</mainClass>
+            </configuration>
+        </plugin>
         </plugins>
     </build>
 
     <dependencies>
         <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>12</version>
+        </dependency>
+        <dependency>
             <groupId>com.jacob.pdf</groupId>
             <artifactId>pdf</artifactId>
             <version>1.18</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/jacob-1.18.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.zeonpad.pdf</groupId>
             <artifactId>pdf</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/zeonpadpdf.jar</systemPath>
         </dependency>
 
         <dependency>
