@@ -2,12 +2,36 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="MsgToPdf:jar" />
+      <artifact name="MTGart" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72b46377-4fb8-438c-8279-ce9b3fafe9fd" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="72b46377-4fb8-438c-8279-ce9b3fafe9fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/SRWF-msg-to-pdf.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/MTGart.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/NativeUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/jacob-1.18-M2-x64.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/jacob-1.18-M2-x86.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/jacob-1.18-x64.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/jacob-1.18-x86.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/system.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstdoc.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1.msg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MsgToPdf_jar/MsgToPdf.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/DirectoryChoose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/DirectoryChoose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Converter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Message.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,37 +44,55 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
+        <option name="jdkForImporter" value="12" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="1SpGzzKhoqssGZuz6xvAKM3XxvZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/MsgToPdf_jar/MsgToPdf.jar" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="project.structure.side.proportion" value="0.4448276" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\IdeaProjects\SRWF-msg-to-pdf\src\main\resources" />
+      <recent name="C:\IdeaProjects\SRWF-msg-to-pdf\lib" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="12" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="main.App" />
-      <module name="MsgToPdf" />
+      <module name="SRWF-msg-to-pdf" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -61,9 +103,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Attachment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.Attachment" />
-      <module name="MsgToPdf" />
+    <configuration name="DirectoryChoose" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.DirectoryChoose" />
+      <module name="SRWF-msg-to-pdf" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -72,57 +114,16 @@
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="File" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.File" />
-      <module name="MsgToPdf" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="app" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.app" />
-      <module name="MsgToPdf" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MSGExtract" type="JarApplication">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/MsgToPdf_jar/MsgToPdf.jar" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\filip.skiba\IdeaProjects\MsgToPdf" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method v="2">
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="MsgToPdf:jar" />
-        </option>
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="Application.app" />
-      <item itemvalue="Application.Attachment" />
-      <item itemvalue="Application.File" />
-      <item itemvalue="JAR Application.MSGExtract" />
+      <item itemvalue="Application.DirectoryChoose" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.app" />
-        <item itemvalue="Application.Attachment" />
-        <item itemvalue="Application.File" />
+        <item itemvalue="Application.DirectoryChoose" />
       </list>
     </recent_temporary>
   </component>
@@ -135,6 +136,57 @@
       <updated>1572253389619</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1262" y="272" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1579789692205">
+      <screen x="-1920" y="-112" width="1858" height="1200" />
+    </state>
+    <state x="-1262" y="272" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579789692205" />
+    <state x="-1211" y="244" key="FileChooserDialogImpl" timestamp="1579868296351">
+      <screen x="-1920" y="-112" width="1858" height="1200" />
+    </state>
+    <state x="-1211" y="244" key="FileChooserDialogImpl/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579868296351" />
+    <state width="1815" height="335" key="GridCell.Tab.0.bottom" timestamp="1579876832410">
+      <screen x="-1920" y="-112" width="1858" height="1200" />
+    </state>
+    <state width="1815" height="335" key="GridCell.Tab.0.bottom/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579876832410" />
+    <state width="1815" height="335" key="GridCell.Tab.0.center" timestamp="1579876832410">
+      <screen x="-1920" y="-112" width="1858" height="1200" />
+    </state>
+    <state width="1815" height="335" key="GridCell.Tab.0.center/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579876832410" />
+    <state width="1815" height="335" key="GridCell.Tab.0.left" timestamp="1579876832409">
+      <screen x="-1920" y="-112" width="1858" height="1200" />
+    </state>
+    <state width="1815" height="335" key="GridCell.Tab.0.left/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579876832409" />
+    <state width="1815" height="335" key="GridCell.Tab.0.right" timestamp="1579876832410">
+      <screen x="-1920" y="-112" width="1858" height="1200" />
+    </state>
+    <state width="1815" height="335" key="GridCell.Tab.0.right/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579876832410" />
+    <state x="-1461" y="144" key="Maven.ArtifactSearchDialog" timestamp="1579787160058">
+      <screen x="-1920" y="-112" width="1858" height="1200" />
+    </state>
+    <state x="-1461" y="144" key="Maven.ArtifactSearchDialog/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579787160058" />
+    <state x="-1511" y="63" key="SettingsEditor" timestamp="1579868539245">
+      <screen x="-1920" y="-112" width="1858" height="1200" />
+    </state>
+    <state x="-1511" y="63" key="SettingsEditor/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579868539245" />
+    <state x="-1328" y="153" width="672" height="678" key="search.everywhere.popup" timestamp="1579787372407">
+      <screen x="-1920" y="-112" width="1858" height="1200" />
+    </state>
+    <state x="-1328" y="153" width="672" height="678" key="search.everywhere.popup/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579787372406" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

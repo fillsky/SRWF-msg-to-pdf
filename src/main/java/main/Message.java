@@ -2,32 +2,14 @@ package main;
 
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.html2pdf.HtmlConverter;
-import com.itextpdf.io.font.FontProgram;
-import com.itextpdf.io.font.FontProgramFactory;
 import com.itextpdf.layout.font.FontProvider;
-import com.itextpdf.styledxmlparser.IXmlParser;
-import com.itextpdf.styledxmlparser.jsoup.Jsoup;
-import com.itextpdf.styledxmlparser.node.IDocumentNode;
-import com.itextpdf.styledxmlparser.node.impl.jsoup.JsoupHtmlParser;
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.BaseFont;
-import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.tool.xml.XMLWorkerHelper;
+
+import com.zeonpad.pdfcovertor.OutlookToPdf;
 import org.apache.poi.hsmf.MAPIMessage;
 import org.apache.poi.hsmf.datatypes.AttachmentChunks;
 import org.apache.poi.hsmf.exceptions.ChunkNotFoundException;
-import org.w3c.tidy.Tidy;
-import org.w3c.tidy.ant.JTidyTask;
-import org.xhtmlrenderer.css.parser.property.PrimitivePropertyBuilders;
-import org.xhtmlrenderer.extend.NamespaceHandler;
-import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Calendar;
@@ -36,18 +18,21 @@ import java.util.TimeZone;
 public class Message {
 
     private String fileNameStem;
+    private String inputDirectory;
+
 
     /**
      * The Outlook MSG file being processed.
      */
     private MAPIMessage msg;
 
-    public Message(String fileName) throws IOException {
+    public Message(String inputDirectory, String fileName) throws IOException {
+        this.inputDirectory = inputDirectory;
         fileNameStem = fileName;
         if (fileNameStem.endsWith(".msg") || fileNameStem.endsWith(".MSG")) {
             fileNameStem = fileNameStem.substring(0, fileNameStem.length() - 4);
         }
-        msg = new MAPIMessage(fileName);
+        msg = new MAPIMessage(inputDirectory + fileName);
     }
 
     /**
@@ -56,8 +41,23 @@ public class Message {
      * @throws IOException if an exception occurs while writing the message out
      */
     public void processMessage() throws IOException {
-        String txtFileName = fileNameStem + ".html";
-        String attDirName = fileNameStem + "-att";
+
+
+        String htmlDirName = inputDirectory + "html\\";
+        String txtFileName = htmlDirName + fileNameStem + ".html";
+        String msgFileName = inputDirectory + fileNameStem + ".msg";
+        String pdfDirName = inputDirectory + "pdf\\" + fileNameStem + "\\";
+        String pdfFileName = pdfDirName + fileNameStem + ".pdf";
+        String attDirName = pdfDirName + "attachments";
+
+        File htmlDir = new File(htmlDirName);
+
+
+        if (!htmlDir.exists()) {
+            if (!htmlDir.mkdirs()) {
+                System.err.println("Error creating HTML directory");
+            }
+        }
         PrintWriter txtOut = null;
         try {
             txtOut = new PrintWriter(txtFileName);
@@ -108,11 +108,13 @@ public class Message {
             if (attachments.length > 0) {
                 File d = new File(attDirName);
                 if (d.mkdir()) {
-                    for (AttachmentChunks attachment : attachments) {
-                        processAttachment(attachment, d);
+                    if (d.exists()) {
+                        for (AttachmentChunks attachment : attachments) {
+                            processAttachment(attachment, d);
+                        }
+                    } else {
+                        System.err.println("Can't create directory " + attDirName);
                     }
-                } else {
-                    System.err.println("Can't create directory " + attDirName);
                 }
             }
         } finally {
@@ -120,6 +122,17 @@ public class Message {
                 txtOut.close();
             }
         }
+
+        File dir = new File(pdfDirName);
+        if (!dir.exists()) {
+            if (!dir.mkdirs()) {
+                System.err.println("Błąd przy tworzeniu folderu wyjsciowego pdf");
+            }
+        }
+
+        OutlookToPdf outlookToPdf = new OutlookToPdf();
+        outlookToPdf.convert(msgFileName, pdfFileName);
+
         /*Tidy tidy = new Tidy();
         tidy.setXHTML(true);
         tidy.setInputEncoding("UTF-8");
@@ -163,6 +176,7 @@ public class Message {
         XMLWorkerHelper.getInstance().parseXHtml(writer, document,
                 new FileInputStream(txtFileName), StandardCharsets.UTF_8);
         document.close();*/
+
         File htmlSource = new File(txtFileName);
         File pdfDest = new File(txtFileName + ".pdf");
         // pdfHTML specific code
@@ -187,6 +201,8 @@ public class Message {
         converterProperties.getFontProvider().addSystemFonts();
         HtmlConverter.convertToPdf(new FileInputStream(htmlSource),
                 new FileOutputStream(pdfDest), converterProperties);
+
+
     }
 
     /**
@@ -201,7 +217,7 @@ public class Message {
                                   File dir) throws IOException {
         String fileName;
         try {
-            fileName = attachment.getAttachFileName().toString();
+            fileName = attachment.getAttachFileName().toString().replace("/", "-");
         } catch (NullPointerException e) {
             System.out.println(e + "Invalid Name");
             fileName = "Unknown-att";

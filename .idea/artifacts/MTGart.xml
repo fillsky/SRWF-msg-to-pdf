@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="MTGart">
+    <output-path>$PROJECT_DIR$/out/artifacts/MTGart</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="App.main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="SRWF_msg_to_pdf.jar">
+        <element id="module-output" name="SRWF-msg-to-pdf" />
+      </element>
+    </root>
+  </artifact>
+</component>
