@@ -1,8 +1,5 @@
 package main;
 
-import com.itextpdf.html2pdf.ConverterProperties;
-import com.itextpdf.html2pdf.HtmlConverter;
-import com.itextpdf.layout.font.FontProvider;
 
 import com.zeonpad.pdfcovertor.OutlookToPdf;
 import org.apache.poi.hsmf.MAPIMessage;
@@ -107,13 +104,14 @@ public class Message {
             AttachmentChunks[] attachments = msg.getAttachmentFiles();
             if (attachments.length > 0) {
                 File d = new File(attDirName);
-                if (d.mkdir()) {
+                if (d.mkdirs()) {
                     if (d.exists()) {
                         for (AttachmentChunks attachment : attachments) {
                             processAttachment(attachment, d);
+                            System.out.print("Attachment dir: " +d.getAbsolutePath() + "\n");
                         }
                     } else {
-                        System.err.println("Can't create directory " + attDirName);
+                        System.err.println("Can't create directory: " + attDirName);
                     }
                 }
             }
@@ -132,75 +130,6 @@ public class Message {
 
         OutlookToPdf outlookToPdf = new OutlookToPdf();
         outlookToPdf.convert(msgFileName, pdfFileName);
-
-        /*Tidy tidy = new Tidy();
-        tidy.setXHTML(true);
-        tidy.setInputEncoding("UTF-8");
-        tidy.setOutputEncoding("UTF-8");
-        tidy.parse(new FileInputStream(txtFileName), new FileOutputStream(txtFileName += ".xhtml"));
-*/
-
-/*
-        String url = new File(txtFileName).toURI().toURL().toString();
-        OutputStream os = new FileOutputStream(txtFileName+".pdf");
-
-
-        ITextRenderer renderer = new ITextRenderer();
-        renderer.setDocument(url);
-        renderer.layout();
-
-        renderer.createPDF(os);
-
-        os.close();*/
-        /*Document document = new Document(PageSize.A4);
-        PdfWriter writer = null;
-        try {
-            writer = PdfWriter.getInstance(document,
-                    new FileOutputStream(txtFileName+".pdf"));
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        }
-        document.open();
-        //FontFactory.registerDirectories();
-
-        for (String f : FontFactory.getRegisteredFonts()) {
-            try {
-                document.add(new Paragraph(f,
-                        FontFactory.getFont(f, "UTF-8", BaseFont.EMBEDDED)));
-            } catch (DocumentException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-        XMLWorkerHelper.getInstance().parseXHtml(writer, document,
-                new FileInputStream(txtFileName), StandardCharsets.UTF_8);
-        document.close();*/
-
-        File htmlSource = new File(txtFileName);
-        File pdfDest = new File(txtFileName + ".pdf");
-        // pdfHTML specific code
-        ConverterProperties converterProperties = new ConverterProperties();
-        converterProperties.setCharset("UTF-8");
-
-       /* BaseFont bf = null;
-        try {
-            bf = BaseFont.createFont("c:/windows/fonts/times.ttf",
-            BaseFont.CP1250, BaseFont.EMBEDDED);
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        }
-
-        Font font = new Font(bf, 12);*/
-        FontProvider fp = new FontProvider();
-        //fp.addFont("c:/windows/fonts/times.ttf", BaseFont.CP1250);
-        fp.addSystemFonts();
-        fp.addStandardPdfFonts();
-        fp.addDirectory("C:\\Windows\\Fonts");
-        converterProperties.setFontProvider(fp);
-        converterProperties.getFontProvider().addSystemFonts();
-        HtmlConverter.convertToPdf(new FileInputStream(htmlSource),
-                new FileOutputStream(pdfDest), converterProperties);
 
 
     }

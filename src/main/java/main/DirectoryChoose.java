@@ -1,5 +1,6 @@
 package main;
 
+import com.zeonpad.pdfcovertor.PDFException;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -34,6 +35,7 @@ public class DirectoryChoose extends Application {
     private Button convertButton = new Button("Start", imageView);
     private ArrayList<String> msgFiles = new ArrayList<>();
     private ProgressBar progressBar = new ProgressBar();
+    private Label dirLabel = new Label();
 
     private static int BUTTON_HEIGHT = 28;
     private static int BUTTON_WIDTH = 80;
@@ -67,10 +69,10 @@ public class DirectoryChoose extends Application {
                         .collect(Collectors.toCollection(ArrayList::new));
 
                 if (msgFiles.isEmpty()) {
-                    textArea.appendText("No msg files in given location!");
+                    textArea.setText("No msg files in given location!\n");
                     selectedDirectory = null;
                 } else {
-                    textArea.setText("Found " + msgFiles.size() + " files");
+                    textArea.setText("Found " + msgFiles.size() + " files.\n");
                     textArea.appendText("Program may ask for permission from Outlook. Give Access or it won't work:) ");
                 }
             }
@@ -89,7 +91,7 @@ public class DirectoryChoose extends Application {
         hBox.setSpacing(5);
         hBox.setPadding(new Insets(10));
         hBox.setAlignment(Pos.CENTER);
-        VBox vBox = new VBox(pathLabel, hBox, progressBar, textArea, cancelButton);
+        VBox vBox = new VBox(pathLabel, hBox, progressBar, textArea, dirLabel, cancelButton);
         vBox.setSpacing(5);
         vBox.setPadding(new Insets(10));
         vBox.setAlignment(Pos.CENTER);
@@ -122,7 +124,7 @@ public class DirectoryChoose extends Application {
                     message = new Message(inDir, msgFile);
                     message.processMessage();
 
-                } catch (IOException ex) {
+                } catch (PDFException | IOException ex) {
                     textArea.appendText(ex.toString());
                 }
 
@@ -132,6 +134,7 @@ public class DirectoryChoose extends Application {
 
             }
             textArea.appendText("Extraction Complete!");
+            Platform.runLater(()->dirLabel.setText("Attachments Extracted to:\n " + outDir + "<msg_name>\\attachments\n"));
             button.setDisable(false);
             convertButton.setDisable(false);
 

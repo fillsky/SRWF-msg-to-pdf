@@ -7,30 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72b46377-4fb8-438c-8279-ce9b3fafe9fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/SRWF-msg-to-pdf.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/MTGart.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/NativeUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/jacob-1.18-M2-x64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/jacob-1.18-M2-x86.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/jacob-1.18-x64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/jacob-1.18-x86.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/system.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.msg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.msg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstdoc.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1.msg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MsgToPdf_jar/MsgToPdf.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/DirectoryChoose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/DirectoryChoose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Converter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Message.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,22 +140,22 @@
       <screen x="-1920" y="-112" width="1858" height="1200" />
     </state>
     <state x="-1211" y="244" key="FileChooserDialogImpl/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579868296351" />
-    <state width="1815" height="335" key="GridCell.Tab.0.bottom" timestamp="1579876832410">
+    <state width="1815" height="335" key="GridCell.Tab.0.bottom" timestamp="1580479821998">
       <screen x="-1920" y="-112" width="1858" height="1200" />
     </state>
-    <state width="1815" height="335" key="GridCell.Tab.0.bottom/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579876832410" />
-    <state width="1815" height="335" key="GridCell.Tab.0.center" timestamp="1579876832410">
+    <state width="1815" height="335" key="GridCell.Tab.0.bottom/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1580479821998" />
+    <state width="1815" height="335" key="GridCell.Tab.0.center" timestamp="1580479821994">
       <screen x="-1920" y="-112" width="1858" height="1200" />
     </state>
-    <state width="1815" height="335" key="GridCell.Tab.0.center/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579876832410" />
-    <state width="1815" height="335" key="GridCell.Tab.0.left" timestamp="1579876832409">
+    <state width="1815" height="335" key="GridCell.Tab.0.center/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1580479821994" />
+    <state width="1815" height="335" key="GridCell.Tab.0.left" timestamp="1580479821993">
       <screen x="-1920" y="-112" width="1858" height="1200" />
     </state>
-    <state width="1815" height="335" key="GridCell.Tab.0.left/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579876832409" />
-    <state width="1815" height="335" key="GridCell.Tab.0.right" timestamp="1579876832410">
+    <state width="1815" height="335" key="GridCell.Tab.0.left/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1580479821993" />
+    <state width="1815" height="335" key="GridCell.Tab.0.right" timestamp="1580479821996">
       <screen x="-1920" y="-112" width="1858" height="1200" />
     </state>
-    <state width="1815" height="335" key="GridCell.Tab.0.right/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1579876832410" />
+    <state width="1815" height="335" key="GridCell.Tab.0.right/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1580479821996" />
     <state x="-1461" y="144" key="Maven.ArtifactSearchDialog" timestamp="1579787160058">
       <screen x="-1920" y="-112" width="1858" height="1200" />
     </state>

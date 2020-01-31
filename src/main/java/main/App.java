@@ -8,7 +8,13 @@ public class App {
 
     static {
             try {
-                NativeUtils.loadLibraryFromJar("/jacob-1.18-x64.dll"); // during runtime. .DLL within .JAR
+                if (System.getProperty("os.arch").equals("amd64")){
+                    NativeUtils.loadLibraryFromJar("/jacob-1.18-x64.dll"); // during runtime. .DLL within .JAR
+                } else
+                {
+                    NativeUtils.loadLibraryFromJar("/jacob-1.18-x86.dll");
+                }
+
             } catch (IOException e1) {
                 throw new RuntimeException(e1);
             }
