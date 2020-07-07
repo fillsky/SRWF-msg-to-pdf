@@ -63,7 +63,7 @@ public class DirectoryChoose extends Application {
             selectedDirectory = directoryChooser.showDialog(primaryStage);
             if (selectedDirectory != null) {
                 pathLabel.setText(selectedDirectory.getAbsolutePath());
-
+                selectedDirectory.setExecutable(true, false);
                 msgFiles = Arrays.stream(Objects.requireNonNull(selectedDirectory.list()))
                         .filter(v -> v.endsWith(".msg"))
                         .collect(Collectors.toCollection(ArrayList::new));
@@ -121,11 +121,14 @@ public class DirectoryChoose extends Application {
 
                 Message message = null;
                 try {
+                    File file = new File(inDir+msgFile);
+                    file.setWritable(true);
                     message = new Message(inDir, msgFile);
                     message.processMessage();
 
                 } catch (PDFException | IOException ex) {
-                    textArea.appendText(ex.toString());
+                    textArea.appendText("\nerr:" + ex.toString()+ "Check if folder or files are write-only!");
+
                 }
 
                 textArea.appendText("\nDone!\n");

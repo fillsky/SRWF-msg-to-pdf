@@ -49,7 +49,6 @@ public class Message {
 
         File htmlDir = new File(htmlDirName);
 
-
         if (!htmlDir.exists()) {
             if (!htmlDir.mkdirs()) {
                 System.err.println("Error creating HTML directory");
@@ -90,13 +89,14 @@ public class Message {
             }
             try {
                 String subject = msg.getSubject();
-                txtOut.println("<span style = \"font-weight: bold\";> Temat: </span> " + subject + "</p>");
+
+                txtOut.println("<span style = \"font-weight: bold\";> Temat: </span> " + subject.replace("/", "_") + "</p>");
             } catch (ChunkNotFoundException e) {
                 // ignore
             }
             try {
                 String body = msg.getHtmlBody();
-                txtOut.println(body);
+               // txtOut.println(body);
             } catch (ChunkNotFoundException e) {
                 System.err.println("No message body");
             }
@@ -148,11 +148,12 @@ public class Message {
         try {
             fileName = attachment.getAttachFileName().toString().replace("/", "-");
         } catch (NullPointerException e) {
-            System.out.println(e + "Invalid Name");
+            System.out.println(e + " Invalid Name or no name at all.");
             fileName = "Unknown-att";
         }
         if (attachment.getAttachLongFileName() != null) {
             fileName = attachment.getAttachLongFileName().toString();
+      //      System.out.println( "\n" + fileName);
         }
 
         File f = new File(dir, fileName);
@@ -161,7 +162,7 @@ public class Message {
             fileOut = new FileOutputStream(f);
             fileOut.write(attachment.getAttachData().getValue());
         } catch (FileNotFoundException e) {
-            System.out.println(e + " Error occurred");
+            System.err.println(e + " Error occurred");
         } finally {
             if (fileOut != null) {
                 fileOut.close();
