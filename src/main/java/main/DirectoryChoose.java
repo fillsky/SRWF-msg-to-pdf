@@ -52,6 +52,7 @@ public class DirectoryChoose extends Application {
         pathLabel.setText("Please choose directory");
         textArea.setMinHeight(80);
         textArea.setEditable(false);
+        directoryChooser.setInitialDirectory(new File("."));
 
 
         progressBar.setPrefWidth(350);
