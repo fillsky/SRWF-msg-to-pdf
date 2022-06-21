@@ -15,13 +15,13 @@ import java.util.TimeZone;
 public class Message {
 
     private String fileNameStem;
-    private String inputDirectory;
+    private final String inputDirectory;
 
 
     /**
      * The Outlook MSG file being processed.
      */
-    private MAPIMessage msg;
+    private final MAPIMessage msg;
 
     public Message(String inputDirectory, String fileName) throws IOException {
         this.inputDirectory = inputDirectory;
@@ -43,49 +43,54 @@ public class Message {
         String htmlDirName = inputDirectory + "html\\";
         String txtFileName = htmlDirName + fileNameStem + ".html";
         String msgFileName = inputDirectory + fileNameStem + ".msg";
-        String pdfDirName = inputDirectory + "pdf\\" + fileNameStem + "\\";
+        String pdfDirName = inputDirectory + "PDF\\" + fileNameStem + "\\";
         String pdfFileName = pdfDirName + fileNameStem + ".pdf";
         String attDirName = pdfDirName + "attachments";
 
         File htmlDir = new File(htmlDirName);
 
         if (!htmlDir.exists()) {
+            App.logger.info("Creating HTML Dir: " + htmlDir);
             if (!htmlDir.mkdirs()) {
+                App.logger.warning("Error creating HTML directory");
                 System.err.println("Error creating HTML directory");
             }
         }
-        PrintWriter txtOut = null;
-        try {
-            txtOut = new PrintWriter(txtFileName);
+        try (PrintWriter txtOut = new PrintWriter(txtFileName)) {
             try {
                 String displayFrom = msg.getDisplayFrom();
                 txtOut.println("<p style =\"font-size:11px;font-family: Calibri, Verdana, Geneva, sans-serif;\"> <span style = \"font-weight: bold\";> Od:</span> " + displayFrom + "<br>");
             } catch (ChunkNotFoundException e) {
                 // ignore
+                App.logger.info("Error: " + e.getMessage());
             }
             try {
                 String displayTo = msg.getDisplayTo();
                 txtOut.println(" <span style = \"font-weight: bold\";> Do:</span> " + displayTo + "<br>");
             } catch (ChunkNotFoundException e) {
                 // ignore
+                App.logger.info("Error: " + e.getMessage());
             }
             try {
                 Calendar date = msg.getMessageDate();
                 txtOut.println(" <span style = \"font-weight: bold\";> Data:</span> " + convertDate(date) + "<br>");
             } catch (ChunkNotFoundException e) {
                 // ignore
+                App.logger.info("Error: " + e.getMessage());
             }
             try {
                 String displayCC = msg.getDisplayCC();
                 txtOut.println(" <span style = \"font-weight: bold\";> DW:</span> " + displayCC + "<br>");
             } catch (ChunkNotFoundException e) {
                 // ignore
+                App.logger.info("Error: " + e.getMessage());
             }
             try {
                 String displayBCC = msg.getDisplayBCC();
                 txtOut.println("<span style = \"font-weight: bold\";> UDW: </span>" + displayBCC + "<br>");
             } catch (ChunkNotFoundException e) {
                 // ignore
+                App.logger.info("Error: " + e.getMessage());
             }
             try {
                 String subject = msg.getSubject();
@@ -93,11 +98,14 @@ public class Message {
                 txtOut.println("<span style = \"font-weight: bold\";> Temat: </span> " + subject.replace("/", "_") + "</p>");
             } catch (ChunkNotFoundException e) {
                 // ignore
+                App.logger.info("Error: " + e.getMessage());
             }
             try {
                 String body = msg.getHtmlBody();
-               // txtOut.println(body);
+                txtOut.println(body);
+
             } catch (ChunkNotFoundException e) {
+                App.logger.info("Error: " + e.getMessage());
                 System.err.println("No message body");
             }
 
@@ -108,16 +116,13 @@ public class Message {
                     if (d.exists()) {
                         for (AttachmentChunks attachment : attachments) {
                             processAttachment(attachment, d);
-                            System.out.print("Attachment dir: " +d.getAbsolutePath() + "\n");
+                            System.out.print("Attachment dir: " + d.getAbsolutePath() + "\n");
                         }
                     } else {
+                        App.logger.info("Can't create directory: " + attDirName);
                         System.err.println("Can't create directory: " + attDirName);
                     }
                 }
-            }
-        } finally {
-            if (txtOut != null) {
-                txtOut.close();
             }
         }
 
@@ -148,6 +153,7 @@ public class Message {
         try {
             fileName = attachment.getAttachFileName().toString().replace("/", "-");
         } catch (NullPointerException e) {
+            App.logger.info("Error: Invalid name or empty name. Renaming to Unknown-att. " +e.getMessage());
             System.out.println(e + " Invalid Name or no name at all.");
             fileName = "Unknown-att";
         }
@@ -162,10 +168,12 @@ public class Message {
             fileOut = new FileOutputStream(f);
             fileOut.write(attachment.getAttachData().getValue());
         } catch (FileNotFoundException e) {
+            App.logger.info("Error: " +e.getMessage());
             System.err.println(e + " Error occurred");
         } finally {
             if (fileOut != null) {
                 fileOut.close();
+                App.logger.info("Closing file successful");
             }
         }
     }
@@ -184,11 +192,5 @@ public class Message {
 
         return dateTime.toString().replace('T', ' ');
     }
-
-    /**
-     * Processes the list of arguments as a list of names of Outlook MSG files.
-     *
-     * @param args the list of MSG files to process
-     */
 
 }

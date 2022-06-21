@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 import java.util.stream.Collectors;
 
 
@@ -28,17 +31,30 @@ public class App {
         }
 
     }
+    public static Logger logger = Logger.getLogger("MyLog");
+    public static FileHandler fh;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
+     try {
+         fh = new FileHandler("C:/temp/msg.log");
+         logger.addHandler(fh);
+         SimpleFormatter formatter = new SimpleFormatter();
+         fh.setFormatter(formatter);
 
-        DirectoryChoose.main(args);
+         logger.info("Start");
+         DirectoryChoose.main(args);
+     } catch (SecurityException | IOException e) {
+         e.printStackTrace();
+         logger.info("Error: " + e);
+     }
+
         //executeOld();
 
     }
 
     public static void executeOld() {
-        ArrayList<String> msgFiles = new ArrayList<>();
+        ArrayList<String> msgFiles;
         File selectedDirectory;
 
         JFileChooser jFileChooser = new JFileChooser();
@@ -55,13 +71,13 @@ public class App {
         for (String msgFile : msgFiles) {
             System.out.println("\nExtracting: " + msgFile + "\nto: " + outDir);
 
-            Message message = null;
+            Message message;
             try {
                 message = new Message(inDir, msgFile);
                 message.processMessage();
 
             } catch (PDFException | IOException ex) {
-                System.out.println("\nerr:" + ex.toString());
+                System.out.println("\nerr:" + ex);
             }
         }
 

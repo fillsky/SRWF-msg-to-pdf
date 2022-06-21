@@ -6,7 +6,7 @@
 
     <groupId>srwf</groupId>
     <artifactId>mtp-converter</artifactId>
-    <version>0.1</version>
+    <version>0.12</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -77,6 +77,9 @@
         It provides two maven goals "exec:exec" and "exec:java"
         Allows us to run this test application from our IDE by first using "compiler:compile" and then "exec:java"
         -->
+            <!-- mvn install:install-file
+            -Dfile=C:\Lib
+            -DgroupId=com.jacob.pdf   -DartifactId=pdf   -Dversion=1.18   -Dpackaging=jar   -DgeneratePom=true -->
         <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>

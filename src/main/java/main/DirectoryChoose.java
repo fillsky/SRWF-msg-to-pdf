@@ -23,22 +23,25 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static java.util.Objects.*;
+
 public class DirectoryChoose extends Application {
 
     private File selectedDirectory;
-    private DirectoryChooser directoryChooser = new DirectoryChooser();
-    private Label pathLabel = new Label();
-    private TextArea textArea = new TextArea();
-    private Image image = new Image(DirectoryChoose.class.getResourceAsStream("/icon.png"));
-    private ImageView imageView = new ImageView(image);
-    private Button button = new Button("Select Directory");
-    private Button convertButton = new Button("Start", imageView);
+    private final DirectoryChooser directoryChooser = new DirectoryChooser();
+    private final Label pathLabel = new Label();
+    private final TextArea textArea = new TextArea();
+    private final Image image = new Image(requireNonNull
+            (DirectoryChoose.class.getResourceAsStream("/icon.png")));
+    private final ImageView imageView = new ImageView(image);
+    private final Button selectButton = new Button("Select Directory");
+    private final Button convertButton = new Button("Start", imageView);
     private ArrayList<String> msgFiles = new ArrayList<>();
-    private ProgressBar progressBar = new ProgressBar();
-    private Label dirLabel = new Label();
+    private final ProgressBar progressBar = new ProgressBar();
+    private final Label dirLabel = new Label();
 
-    private static int BUTTON_HEIGHT = 28;
-    private static int BUTTON_WIDTH = 80;
+    private static final int BUTTON_HEIGHT = 28;
+    private static final int BUTTON_WIDTH = 80;
 
     @Override
     public void start(Stage primaryStage) {
@@ -47,25 +50,29 @@ public class DirectoryChoose extends Application {
 
         imageView.setFitHeight(15);
         imageView.setPreserveRatio(true);
-        button.setMinSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+        selectButton.setMinSize(BUTTON_WIDTH, BUTTON_HEIGHT);
         convertButton.setMinSize(BUTTON_WIDTH, BUTTON_HEIGHT);
-        pathLabel.setText("Please choose directory");
+        pathLabel.setText("Please choose directory.");
         textArea.setMinHeight(80);
         textArea.setEditable(false);
-        directoryChooser.setInitialDirectory(new File("."));
+        directoryChooser.setInitialDirectory(new File(System.getProperty("user.home")));
 
 
         progressBar.setPrefWidth(350);
         Button cancelButton = new Button("Close");
-        cancelButton.setOnAction(event -> System.exit(1));
+        cancelButton.setOnAction(event -> {
+            App.logger.info("Closed by Close button. Stop.");
+            System.exit(1);
+        });
         cancelButton.setMinSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 
-        button.setOnAction(event -> {
+        selectButton.setOnAction(event -> {
             selectedDirectory = directoryChooser.showDialog(primaryStage);
             if (selectedDirectory != null) {
                 pathLabel.setText(selectedDirectory.getAbsolutePath());
+                directoryChooser.setInitialDirectory(selectedDirectory.getAbsoluteFile());
                 selectedDirectory.setExecutable(true, false);
-                msgFiles = Arrays.stream(Objects.requireNonNull(selectedDirectory.list()))
+                msgFiles = Arrays.stream(requireNonNull(selectedDirectory.list()))
                         .filter(v -> v.endsWith(".msg"))
                         .collect(Collectors.toCollection(ArrayList::new));
 
@@ -80,7 +87,7 @@ public class DirectoryChoose extends Application {
         });
         convertButton.setOnAction(e -> {
             if (selectedDirectory == null) {
-                textArea.setText("No directory chosen!\n");
+                textArea.setText("Choose correct folder.\n");
             } else {
                 executeFiles();
 
@@ -88,7 +95,7 @@ public class DirectoryChoose extends Application {
         });
 
 
-        HBox hBox = new HBox(button, convertButton);
+        HBox hBox = new HBox(selectButton, convertButton);
         hBox.setSpacing(5);
         hBox.setPadding(new Insets(10));
         hBox.setAlignment(Pos.CENTER);
@@ -110,7 +117,7 @@ public class DirectoryChoose extends Application {
 
     private void executeFiles(){
         Thread thread = new Thread(()->{
-            button.setDisable(true);
+            selectButton.setDisable(true);
             convertButton.setDisable(true);
             String inDir = selectedDirectory.getAbsolutePath() + "\\";
             String outDir = selectedDirectory.getAbsolutePath() + "\\PDF\\";
@@ -120,7 +127,7 @@ public class DirectoryChoose extends Application {
             for (String msgFile : msgFiles) {
                 textArea.appendText("\nExtracting: " + msgFile + "\nto: " + outDir);
 
-                Message message = null;
+                Message message;
                 try {
                     File file = new File(inDir+msgFile);
                     file.setWritable(true);
@@ -128,7 +135,7 @@ public class DirectoryChoose extends Application {
                     message.processMessage();
 
                 } catch (PDFException | IOException ex) {
-                    textArea.appendText("\nerr:" + ex.toString()+ "Check if folder or files are write-only!");
+                    textArea.appendText("\nerr:" + ex + "Check if folder or files are write-only!");
 
                 }
 
@@ -139,7 +146,7 @@ public class DirectoryChoose extends Application {
             }
             textArea.appendText("Extraction Complete!");
             Platform.runLater(()->dirLabel.setText("Attachments Extracted to:\n " + outDir + "<msg_name>\\attachments\n"));
-            button.setDisable(false);
+            selectButton.setDisable(false);
             convertButton.setDisable(false);
 
         });

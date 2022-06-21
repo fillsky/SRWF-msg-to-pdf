@@ -5,10 +5,18 @@
       <artifact name="MTGart" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="72b46377-4fb8-438c-8279-ce9b3fafe9fd" name="Default Changelist" comment="">
+    <list default="true" id="72b46377-4fb8-438c-8279-ce9b3fafe9fd" name="Default Changelist" comment="#Changed Java version to OpenJDK 17&#10;#Corrected error caused by empty attachment name">
+      <change beforePath="$PROJECT_DIR$/.idea/SRWF-msg-to-pdf.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/DirectoryChoose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/DirectoryChoose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Message.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +39,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -46,16 +65,19 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4448276" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -63,9 +85,23 @@
       <recent name="C:\IdeaProjects\SRWF-msg-to-pdf\lib" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn install:install-file" />
+      <command value="mvn install:install-file   -Dfile=E:\IdeaProjects\SRWF-msg-to-pdf\lib   -DgroupId=com.jacob.pdf   -DartifactId=pdf   -Dversion=1.18   -Dpackaging=jar   -DgeneratePom=true" />
+      <command value="mvn install:install-file             -Dfile=C:\Lib\             -DgroupId=com.jacob.pdf   -DartifactId=pdf   -Dversion=1.18   -Dpackaging=jar   -DgeneratePom=true" />
+      <command value="mvn install:install-file   -Dfile=E:\IdeaProjects\SRWF-msg-to-pdf\lib\jacob-1.18.jar   -DgroupId=com.jacob.pdf   -DartifactId=pdf   -Dversion=1.18   -Dpackaging=jar   -DgeneratePom=true" />
+      <command value="mvn install:install-file   -Dfile=E:\IdeaProjects\SRWF-msg-to-pdf\lib\zeonpadpdf.jar  -DgroupId=com.zeonpad.pdf   -DartifactId=pdf   -Dversion=1.0   -Dpackaging=jar   -DgeneratePom=true" />
+      <command value="mvn clean" />
+      <command value="mvn compile" />
+      <command value="mvn validate" />
+      <command value="mvn install" />
+      <command value="mvn package" />
+    </option>
+  </component>
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="12" />
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="main.App" />
       <module name="SRWF-msg-to-pdf" />
@@ -92,17 +128,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="mtp-converter-0.12-jar-with-dependencies.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/mtp-converter-0.12-jar-with-dependencies.jar" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.App" />
       <item itemvalue="Application.DirectoryChoose" />
+      <item itemvalue="JAR Application.mtp-converter-0.12-jar-with-dependencies.jar" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="JAR Application.mtp-converter-0.12-jar-with-dependencies.jar" />
         <item itemvalue="Application.DirectoryChoose" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="72b46377-4fb8-438c-8279-ce9b3fafe9fd" name="Default Changelist" comment="" />
@@ -123,49 +166,11 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state width="1815" height="335" key="GridCell.Tab.0.bottom" timestamp="1594109127252">
-      <screen x="-1920" y="-112" width="1858" height="1200" />
-    </state>
-    <state width="1815" height="335" key="GridCell.Tab.0.bottom/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1594109127252" />
-    <state width="1815" height="335" key="GridCell.Tab.0.center" timestamp="1594109127252">
-      <screen x="-1920" y="-112" width="1858" height="1200" />
-    </state>
-    <state width="1815" height="335" key="GridCell.Tab.0.center/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1594109127252" />
-    <state width="1815" height="335" key="GridCell.Tab.0.left" timestamp="1594109127251">
-      <screen x="-1920" y="-112" width="1858" height="1200" />
-    </state>
-    <state width="1815" height="335" key="GridCell.Tab.0.left/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1594109127251" />
-    <state width="1815" height="335" key="GridCell.Tab.0.right" timestamp="1594109127252">
-      <screen x="-1920" y="-112" width="1858" height="1200" />
-    </state>
-    <state width="1815" height="335" key="GridCell.Tab.0.right/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1594109127252" />
-    <state width="1815" height="412" key="GridCell.Tab.1.bottom" timestamp="1593783103230">
-      <screen x="-1920" y="-112" width="1858" height="1200" />
-    </state>
-    <state width="1815" height="412" key="GridCell.Tab.1.bottom/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1593783103230" />
-    <state width="1815" height="412" key="GridCell.Tab.1.center" timestamp="1593783103230">
-      <screen x="-1920" y="-112" width="1858" height="1200" />
-    </state>
-    <state width="1815" height="412" key="GridCell.Tab.1.center/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1593783103230" />
-    <state width="1815" height="412" key="GridCell.Tab.1.left" timestamp="1593783103229">
-      <screen x="-1920" y="-112" width="1858" height="1200" />
-    </state>
-    <state width="1815" height="412" key="GridCell.Tab.1.left/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1593783103229" />
-    <state width="1815" height="412" key="GridCell.Tab.1.right" timestamp="1593783103230">
-      <screen x="-1920" y="-112" width="1858" height="1200" />
-    </state>
-    <state width="1815" height="412" key="GridCell.Tab.1.right/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1593783103230" />
-    <state width="937" height="608" key="XDebugger.FullValuePopup" timestamp="1593779945307">
-      <screen x="-1920" y="-112" width="1858" height="1200" />
-    </state>
-    <state width="937" height="608" key="XDebugger.FullValuePopup/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1593779945307" />
-    <state x="-1328" y="153" width="672" height="678" key="search.everywhere.popup" timestamp="1594109028919">
-      <screen x="-1920" y="-112" width="1858" height="1200" />
-    </state>
-    <state x="-1328" y="153" width="672" height="678" key="search.everywhere.popup/0.0.1854.1080/-1920.-112.1858.1200/1920.-124.1858.1200@-1920.-112.1858.1200" timestamp="1594109028919" />
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="#Changed Java version to OpenJDK 17&#10;#Corrected error caused by empty attachment name" />
+    <option name="LAST_COMMIT_MESSAGE" value="#Changed Java version to OpenJDK 17&#10;#Corrected error caused by empty attachment name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -180,6 +185,10 @@
           <line>60</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="6" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -191,5 +200,9 @@
         <watch expression="msg.directory" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
